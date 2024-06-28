@@ -1,0 +1,14 @@
+<?php
+	 $server = 'localhost';
+        $username = 'root';
+        $password = 'root';
+        $database = 'lms';
+        $connection = new mysqli($server, $username, $password, $database, 3307) or die("not 
+        connected");
+	$user_count = 0;
+	$query = "select count(*) as user_count from users";
+	$query_run = mysqli_query($connection,$query);
+	while ($row = mysqli_fetch_assoc($query_run)){
+		$user_count = $row['user_count'];
+	}
+?>
